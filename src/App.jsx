@@ -22,7 +22,7 @@ function App() {
   const filteredProducts = filterProducts(products);
   return (
     <>
-      <Header />
+      <Header changeFilters={setFilters} />
       <Products products={filteredProducts} />
     </>
   );
