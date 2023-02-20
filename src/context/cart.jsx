@@ -32,12 +32,12 @@ export function CartProvider({ children }) {
     setCart(prevState => prevState.filter(item => item.id !== product.id))
   }
 
-  const cleanCart = () => {
-    setCart([]);
+  const clearCart = () => {
+    setCart([{}]);
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, cleanCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
       {children}
     </CartContext.Provider>
   );
