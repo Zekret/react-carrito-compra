@@ -1,11 +1,11 @@
 import "./App.css";
-import Cart from "./components/Cart";
-import Footer from "./components/Footer";
-import { Header } from "./components/Header";
-import Products from "./components/Products";
+import { Cart } from './components/Cart.jsx'
+import { Footer } from "./components/Footer.jsx";
+import { Header } from "./components/Header.jsx";
+import { Products } from "./components/Products.jsx";
 import { IS_DEVELOPMENT } from "./config";
-import { CartProvider } from "./context/cart";
-import useFilters from "./hooks/useFilters";
+import { CartProvider } from "./context/cart.jsx";
+import { useFilters } from "./hooks/useFilters";
 import { products } from "./mocks/products.json";
 
 function App() {

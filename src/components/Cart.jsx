@@ -2,7 +2,7 @@ import './Cart.css'
 import { useId } from "react";
 import { CartIcon, ClearCartIcon } from "./Icons";
 
-export default function Cart() {
+export function Cart() {
   const cartCheckboxId = useId();
   return (
     <>

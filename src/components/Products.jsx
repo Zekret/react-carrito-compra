@@ -2,7 +2,7 @@ import { useCart } from "../hooks/useCart.js";
 import { AddToCartIcon, RemoveFromCartIcon } from "./Icons";
 import "./Products.css";
 
-function Products({ products }) {
+export function Products({ products }) {
   const { addToCart, removeFromCart, cart } = useCart();
 
   const checkProductInCart = (product) => {
@@ -35,5 +35,3 @@ function Products({ products }) {
     </main>
   );
 }
-
-export default Products;
