@@ -8,12 +8,12 @@ import { products } from "./mocks/products.json";
 
 function App() {
   
-  const { filters, filterProducts, setFilters } = useFilters()
+  const { filters, filterProducts } = useFilters()
 
   const filteredProducts = filterProducts(products);
   return (
     <>
-      <Header changeFilters={setFilters} />
+      <Header />
       <Products products={filteredProducts} />
       {IS_DEVELOPMENT && <Footer filters={filters} />}
     </>
