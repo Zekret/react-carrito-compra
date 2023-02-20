@@ -1,29 +1,21 @@
-import { useState } from "react";
 import "./App.css";
+import Footer from "./components/Footer";
 import { Header } from "./components/Header";
 import Products from "./components/Products";
+import { IS_DEVELOPMENT } from "./config";
+import useFilters from "./hooks/useFilters";
 import { products } from "./mocks/products.json";
 
 function App() {
-  const [filters, setFilters] = useState({
-    category: "all",
-    minPrice: 0,
-  });
-
-  const filterProducts = (products) => {
-    return products.filter((product) => {
-      return (
-        product.price >= filters.minPrice &&
-        (filters.category === "all" || product.category === filters.category)
-      );
-    });
-  };
+  
+  const { filters, filterProducts, setFilters } = useFilters()
 
   const filteredProducts = filterProducts(products);
   return (
     <>
       <Header changeFilters={setFilters} />
       <Products products={filteredProducts} />
+      {IS_DEVELOPMENT && <Footer filters={filters} />}
     </>
   );
 }
