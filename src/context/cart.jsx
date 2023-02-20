@@ -11,12 +11,9 @@ const reducer = (state, action) => {
   switch (actionType) {
     case "ADD_TO_CART": {
       const { id } = actionPayload;
-      const productInCartIndex = state.findIndex(
-        (item) => item.id === product.id
-      );
+      const productInCartIndex = state.findIndex((item) => item.id === id);
       if (productInCartIndex >= 0) {
-        //una forma seria usando structureClone
-        const newState = structuredClone(cart);
+        const newState = structuredClone(state);
         newState[productInCartIndex].quantity += 1;
         return newState;
       }
@@ -58,7 +55,7 @@ export function CartProvider({ children }) {
       payload: product,
     });
 
-  const clearCart = () => dispatch({ type: "CLEAN_CART" });
+  const clearCart = () => dispatch({ type: "CLEAR_CART" });
 
   return (
     <CartContext.Provider
